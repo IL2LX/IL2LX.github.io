@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CroissantVRC. - Home</title>
+  <link rel="stylesheet" href="style.css" />
+  
+  <style>
+    body { opacity: 0; animation: fadeIn 1.2s ease forwards; }
+
+    header { animation: slideDown 1s ease forwards; }
+    main h1 { animation: fadeUp 1s ease forwards; animation-delay: .4s; opacity: 0; }
+    main p { animation: fadeUp 1s ease forwards; animation-delay: .7s; opacity: 0; }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes fadeUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    #enterOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    #enterOverlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+  
+</head>
+<body>
+  <div id="enterOverlay">Click to be gay</div>
+
+  <header>
+    <div class="logo">CroissantVRC.</div>
+    <nav>
+      <a href="Index.html" class="active">Home</a>
+      <a href="Features.html">Features</a>
+      <a href="https://discord.gg/ptQ7FaRsbd">Discord</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Welcome to CroissantVRC.</h1>
+    <p>Wha?~</p>
+  </main>
+
+  <audio id="bgMusic" src="Music.mp3" preload="auto" loop></audio>
+
+  <script>
+    const overlay = document.getElementById('enterOverlay');
+    const audio = document.getElementById('bgMusic');
+
+    overlay.addEventListener('click', () => 
+	{
+      overlay.classList.add('hidden');
+      audio.volume = 0;
+      audio.play();
+
+      let vol = 0;
+      const fadeInterval = setInterval(() => {
+        if(vol < 1) {
+          vol += 0.02;
+          audio.volume = vol;
+        } else {
+          audio.volume = 1;
+          clearInterval(fadeInterval);
+        }
+      }, 50);
+    });
+  </script>
+  
+</body>
+</html>
