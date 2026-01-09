@@ -1,8 +1,0 @@
-Lastest update: 19/12/25
-
-- Added:
-> UserStuff in selectmenu.
-
-- Fix:
-> MainMenu broke when closing quickmenu.
-> SelectMenu broke when closing quickmenu.
