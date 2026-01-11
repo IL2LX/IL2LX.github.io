@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Croissant. - CVRX Lua API Doc</title>
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #111 0%, #875903 220%, #111 100%);
+  color: #eee;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after { box-sizing: inherit; }
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #362301;
+  border-bottom: 2px solid #fca503;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fca503;
+  position: absolute;
+  left: 20px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #eee;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  background: #694502;
+}
+
+main {
+  margin-top: 100px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: 36px;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 30px;
+  font-size: 18px;
+  max-width: 800px;
+  text-align: center;
+}
+
+.accordion {
+  max-width: 900px;
+  width: 100%;
+}
+
+.accordion-item {
+  background: #1e1e1e;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  padding: 15px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  background: #3b2701;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+.accordion-header:hover {
+  background: #875903;
+}
+
+.accordion-arrow {
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-arrow {
+  transform: rotate(90deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  background: #1b1b1b;
+  color: #fff;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.accordion-item.active .accordion-content {
+  padding: 10px 20px;
+}
+
+.accordion-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  color: #eee;
+}
+
+.accordion-content th, .accordion-content td {
+  padding: 10px;
+  border: 1px solid #444;
+  text-align: left;
+}
+
+.accordion-content th {
+  background: #694502;
+  color: #fff;
+}
+
+.accordion-content code {
+  background: #2c2c2c;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.accordion-content pre {
+  background: #2c2c2c;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">CroissantVRC.</div>
+  <nav>      
+      <a href="Index.html">Home</a>
+      <a href="Features.html">Features</a>
+      <a href="https://discord.gg/ptQ7FaRsbd">Discord</a>
+      <a href="CVRX_LuaDoc.html" class="active">CVRX LuaEngine Doc</a>
+  </nav>
+</header>
+
+<main>
+  <h1>- CVRX LuaEngine API Documentation -</h1>
+  <p>This documentation covers all Lua globals, helper functions, and event callbacks exposed by <code>LuaEngine</code>.</p>
+
+  <div class="accordion">
+
+    <div class="accordion-item">
+      <div class="accordion-header">Lua Global Functions <span class="accordion-arrow">▶</span></div>
+      <div class="accordion-content">
+        <table>
+          <tr><th>Function</th><th>Parameters</th><th>Description</th></tr>
+          <tr><td>log(msg)</td><td>string</td><td>Logs a message to the CVRX console.</td></tr>
+          <tr><td>print(msg)</td><td>string</td><td>Prints a message to the console.</td></tr>
+          <tr><td>warn(msg)</td><td>string</td><td>Logs a warning message in the console.</td></tr>
+          <tr><td>clearconsole()</td><td>None</td><td>Clears the console output.</td></tr>
+          <tr><td>consonetitle(title)</td><td>string</td><td>Sets the console window title.</td></tr>
+          <tr><td>consoleinput()</td><td>None</td><td>Prompts for input from the user via console.</td></tr>
+          <tr><td>run(code)</td><td>string</td><td>Executes a Lua code string in the engine.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">Unity Helper Table: unity <span class="accordion-arrow">▶</span></div>
+      <div class="accordion-content">
+        <table>
+          <tr><th>Function</th><th>Parameters</th><th>Description</th></tr>
+          <tr><td>time()</td><td>None</td><td>Returns the current <code>Time.time</code>.</td></tr>
+          <tr><td>deltaTime()</td><td>None</td><td>Returns <code>Time.deltaTime</code>.</td></tr>
+          <tr><td>fixedDeltaTime()</td><td>None</td><td>Returns <code>Time.fixedDeltaTime</code>.</td></tr>
+          <tr><td>getActiveScene()</td><td>None</td><td>Returns the name of the active scene.</td></tr>
+          <tr><td>loadScene(sceneName)</td><td>string</td><td>Loads a Unity scene by name.</td></tr>
+          <tr><td>find(name)</td><td>string</td><td>Finds a GameObject by name.</td></tr>
+          <tr><td>findWithTag(tag)</td><td>string</td><td>Finds a GameObject by tag.</td></tr>
+          <tr><td>create(name)</td><td>string</td><td>Creates a new GameObject with the given name.</td></tr>
+          <tr><td>destroy(go)</td><td>GameObject</td><td>Destroys a GameObject.</td></tr>
+          <tr><td>vec2(x, y)</td><td>float, float</td><td>Returns a new Vector2 object.</td></tr>
+          <tr><td>vec3(x, y, z)</td><td>float, float, float</td><td>Returns a new Vector3 object.</td></tr>
+          <tr><td>delay(time, fn)</td><td>float, function</td><td>Calls a Lua function after a delay in seconds.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">Lua Event Callbacks <span class="accordion-arrow">▶</span></div>
+      <div class="accordion-content">
+        <table>
+          <tr><th>Callback</th><th>Parameters</th><th>Description</th></tr>
+          <tr><td>OnLoad()</td><td>None</td><td>Called immediately after the script is loaded.</td></tr>
+          <tr><td>OnUnload()</td><td>None</td><td>Called when the script is unloaded.</td></tr>
+          <tr><td>OnUpdate(deltaTime)</td><td>float</td><td>Called every frame with <code>Time.deltaTime</code>.</td></tr>
+          <tr><td>OnPlayerJoin(playerName)</td><td>string</td><td>Called when a player joins the instance.</td></tr>
+          <tr><td>OnPlayerLeave(playerName)</td><td>string</td><td>Called when a player leaves the instance.</td></tr>
+          <tr><td>OnAvatarSwitch(playerName, avatarId)</td><td>string, string</td><td>Called when a player switches avatar.</td></tr>
+          <tr><td>OnInstanceConnect(instanceId)</td><td>string</td><td>Called when connecting to a new instance.</td></tr>
+          <tr><td>OnInstanceDisconnect()</td><td>None</td><td>Called when disconnected from the instance.</td></tr>
+          <tr><td>OnSceneLoaded(sceneName, mode)</td><td>string, string</td><td>Called after a scene finishes loading.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">Example Lua Script <span class="accordion-arrow">▶</span></div>
+      <div class="accordion-content">
+<pre>
+function OnLoad()
+print('We have been loaded.')
+end
+
+function OnSceneLoaded(sceneName, mode)
+    log("Scene loaded: " .. sceneName .. " (Mode: " .. mode .. ")")
+end
+
+function OnInstanceConnect(instanceId)
+    log("Connected to instance: " .. instanceId)
+end
+
+function OnInstanceDisconnect()
+    warn("Disconnected from instance!")
+end
+
+function OnUpdate(deltaTime)
+    log("We update");
+end
+
+function OnPlayerJoin(playerName)
+    log("Player Joined: " .. playerName)
+end
+
+function OnPlayerLeft(playerName)
+    log("Player Left: " .. playerName)
+end
+
+function OnAvatarSwitch(playerName, avatarId)
+    warn(playerName .. " switched to avatar: " .. avatarId)
+end
+
+function OnUnload()
+print('We have been unload nooooo.')
+end
+</pre>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+const items = document.querySelectorAll('.accordion-item');
+items.forEach(item => {
+  const header = item.querySelector('.accordion-header');
+  const content = item.querySelector('.accordion-content');
+  content.style.maxHeight = 0;
+  header.addEventListener('click', () => {
+    items.forEach(i => {
+      if(i !== item){
+        i.classList.remove('active');
+        i.querySelector('.accordion-content').style.maxHeight = 0;
+      }
+    });
+    item.classList.toggle('active');
+    content.style.maxHeight = item.classList.contains('active') ? content.scrollHeight + "px" : 0;
+  });
+});
+</script>
+
+</body>
+</html>
