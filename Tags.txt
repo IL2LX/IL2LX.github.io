@@ -4,3 +4,5 @@ JUMP:<color=#9900ff>Looking for boobs...:usr_99ae09e5-f293-4bfd-a06e-99fd7e9cb69
 SHAKE:<color=#ee00ff>Hop on dih dih:usr_78984bad-a60f-42fe-b3a7-e38a2fb7c5af
 LBL:<color=#1100ff>_Unreal:usr_ad60ea8e-2909-4041-837f-ee1688d9aaff
 LBL:<color=#6e6e6e>Hello, i'm a skid!:usr_7aa64c88-54bc-4f39-a300-aa605e886925
+GLITCH:<color=#cf03fc>OutOfMyself:usr_bec56304-59e4-4736-a8eb-93818e033135
+GLITCH:<color=#0352fc>Wawa:usr_61df2b83-8463-428f-b295-8976f6b929b6
