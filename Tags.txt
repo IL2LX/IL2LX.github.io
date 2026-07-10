@@ -10,3 +10,4 @@ GLITCH:<color=#240C3B>R3:usr_7749154a-4ef0-4071-8e26-f943ec6961aa
 GLITCH:<color=#327ba8>El pute glacyeon:usr_acca2488-4e6d-4ff8-804d-f7e356020662
 LBL:<color=#d7fc03>W Claude:usr_e10d1fa8-16f4-4734-aba3-0230af484827
 LBL:<color=#5232a8>Looking for boobs...:usr_69948ee2-4ff1-4d8c-862d-6ab0de9321a7
+JUMP:<color=#c7c7c7>Cutest Abyss Support:usr_47602155-e173-4064-b85a-ba6f85012646
