@@ -1,0 +1,11 @@
+{
+  "usr_140b301f-d6ff-41ae-ae55-fc3efe09b264": {
+    "enabled": true,
+    "tagColor": [1.0, 0, 0, 1.0],
+    "bgColor": [0.5, 0, 0, 1.0],
+    "borderColor": [1, 0, 0, 1.0],
+    "hue": 0.0,
+    "autoHueShift": true,
+    "hueShiftSpeed": 0.25
+  }
+}
